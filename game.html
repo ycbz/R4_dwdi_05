@@ -40,15 +40,27 @@
                 var layer = new Konva.Layer();
                 stage.add(layer);
 
-                // créer les pièces du puzzle
+                // définir les dimensions de l'espace de jeu
+                var puzzleWidth = 500;
+                var puzzleHeight = 500;
+
+                // définir les dimensions du conteneur de la scène
+                var containerWidth = 1200;
+                var containerHeight = 680;
+
+                // calculer la position centrale de l'espace de jeu
+                var puzzleX = (containerWidth - puzzleWidth) / 2;
+                var puzzleY = (containerHeight - puzzleHeight) / 2;
+
+                // créer les pièces du puzzle centrées
                 var pieces = [];
                 for (var i = 0; i < 4; i++) {
                     for (var j = 0; j < 4; j++) {
                         var piece = new Konva.Rect({
-                            x: i * 500 / 4,
-                            y: j * 500 / 4,
-                            width: 500 / 4,
-                            height: 500 / 4,
+                            x: puzzleX + i * puzzleWidth / 4,
+                            y: puzzleY + j * puzzleHeight / 4,
+                            width: puzzleWidth / 4,
+                            height: puzzleHeight / 4,
                             fill: '#fff',
                             stroke: '#222',
                             strokeWidth: 2
@@ -62,7 +74,10 @@
                 for (var i = 0; i < 3; i++) {
                     for (var j = 0; j < 4; j++) {
                         var line = new Konva.Line({
-                            points: [i * 500 / 4 + 500 / 4, j * 500 / 4, i * 500 / 4 + 500 / 4, j * 500 / 4 + 500 / 4],
+                            points: [i * 500 / 4 + 500 / 4,
+                            j * 500 / 4,
+                            i * 500 / 4 + 500 / 4,
+                            j * 500 / 4 + 500 / 4],
                             stroke: '#222',
                             strokeWidth: 2
                         });
@@ -72,7 +87,10 @@
                 for (var i = 0; i < 4; i++) {
                     for (var j = 0; j < 3; j++) {
                         var line = new Konva.Line({
-                            points: [i * 500 / 4, j * 500 / 4 + 500 / 4, i * 500 / 4 + 500 / 4, j * 500 / 4 + 500 / 4],
+                            points: [i * 500 / 4,
+                            j * 500 / 4 + 500 / 4,
+                            i * 500 / 4 + 500 / 4,
+                            j * 500 / 4 + 500 / 4],
                             stroke: '#222',
                             strokeWidth: 2
                         });
@@ -82,10 +100,10 @@
 
                 // créer la forme du puzzle
                 var puzzle = new Konva.Rect({
-                    x: 350,
-                    y: 90,
-                    width: 500,
-                    height: 500,
+                    x: puzzleX,
+                    y: puzzleY,
+                    width: puzzleWidth,
+                    height: puzzleHeight,
                     stroke: '#222',
                     strokeWidth: 4
                 });
