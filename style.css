@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Arcade';
+    src: url('fonts/ARCADE.TTF') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Arcade';
+    margin: 0;
+}
+
+/* Couleurs pour les différents éléments */
+:root {
+    --accent-color: #FF2D55;
+    /* Rose */
+    --background-color: #222;
+    /* Noir */
+    --font-color: #fff;
+    /* Blanc */
+    --primary-color: #FFB900;
+    /* Jaune */
+    --secondary-color: #FF8C00;
+    /* Orange */
+    --tertiary-color: #8CFFD7;
+    /*  */
+}
+
+/* Style pour l'en-tête */
+header {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
+    padding: 0;
+}
+
+/* Style pour la liste des éléments de navigation */
+nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour les titres de niveau 1 et 2 */
+h1,
+h2 {
+    font-weight: normal;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Style pour le titre principal */
+h1 {
+    color: var(--primary-color);
+    font-size: 5em;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px var(--accent-color);
+}
+
+/* Style pour les titres de niveau 2 */
+h2 {
+    color: var(--secondary-color);
+    font-size: 3.5em;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px var(--accent-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*  */
+
+/* Corps */
+
+/*  */
+
+.container {
+    display: flex;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+}
+
+h3 {
+    color: var(--font-color);
+    font-size: 3.5em;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px var(--tertiary-color);
+}
+
+/*  */
+
+/* Jeu */
+
+/*  */
