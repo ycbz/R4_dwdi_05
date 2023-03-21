@@ -79,7 +79,7 @@ a {
 
 /*  */
 
-.container {
+.container-index, .container-game {
     display: flex;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -99,6 +99,12 @@ h3 {
 
 /*  */
 
-.game-screen {
+.container-game {
+    justify-content: center;
+}
+
+#game-screen {
     border: solid 2px var(--font-color);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px var(--tertiary-color); 
 }
