@@ -52,24 +52,6 @@
                 var puzzleX = (containerWidth - puzzleWidth) / 2;
                 var puzzleY = (containerHeight - puzzleHeight) / 2;
 
-                // Crée les pièces du puzzle centrées
-                var pieces = [];
-                for (var i = 0; i < 4; i++) {
-                    for (var j = 0; j < 4; j++) {
-                        var piece = new Konva.Rect({
-                            x: puzzleX + i * puzzleWidth / 4,
-                            y: puzzleY + j * puzzleHeight / 4,
-                            width: puzzleWidth / 4,
-                            height: puzzleHeight / 4,
-                            fill: '#fff',
-                            stroke: '#222',
-                            strokeWidth: 2
-                        });
-                        pieces.push(piece);
-                        layer.add(piece);
-                    }
-                }
-
                 // Crée les lignes de découpe
                 for (var i = 0; i < 3; i++) {
                     for (var j = 0; j < 4; j++) {
@@ -108,6 +90,25 @@
                     strokeWidth: 4
                 });
                 layer.add(puzzle);
+
+                // Crée les pièces du puzzle centrées
+                var pieces = [];
+                for (var i = 0; i < 4; i++) {
+                    for (var j = 0; j < 4; j++) {
+                        var piece = new Konva.Rect({
+                            x: puzzleX + i * puzzleWidth / 4,
+                            y: puzzleY + j * puzzleHeight / 4,
+                            width: puzzleWidth / 4,
+                            height: puzzleHeight / 4,
+                            fill: '#fff',
+                            stroke: '#222',
+                            strokeWidth: 2,
+                            draggable: true,
+                        });
+                        pieces.push(piece);
+                        layer.add(piece);
+                    }
+                }
 
                 // Dessine le stage
                 stage.draw();
