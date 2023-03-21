@@ -29,30 +29,30 @@
     <div class="container-game">
         <div id="game-screen">
             <script>
-                // créer le stage
+                // Crée le stage
                 var stage = new Konva.Stage({
                     container: 'game-screen',
                     width: 1200,
                     height: 680
                 });
 
-                // créer le layer
+                // Crée le layer
                 var layer = new Konva.Layer();
                 stage.add(layer);
 
-                // définir les dimensions de l'espace de jeu
+                // Définit les dimensions de l'espace de jeu
                 var puzzleWidth = 500;
                 var puzzleHeight = 500;
 
-                // définir les dimensions du conteneur de la scène
+                // Définit les dimensions du conteneur de la scène
                 var containerWidth = 1200;
                 var containerHeight = 680;
 
-                // calculer la position centrale de l'espace de jeu
+                // Calcule la position centrale de l'espace de jeu
                 var puzzleX = (containerWidth - puzzleWidth) / 2;
                 var puzzleY = (containerHeight - puzzleHeight) / 2;
 
-                // créer les pièces du puzzle centrées
+                // Crée les pièces du puzzle centrées
                 var pieces = [];
                 for (var i = 0; i < 4; i++) {
                     for (var j = 0; j < 4; j++) {
@@ -70,7 +70,7 @@
                     }
                 }
 
-                // créer les lignes de découpe
+                // Crée les lignes de découpe
                 for (var i = 0; i < 3; i++) {
                     for (var j = 0; j < 4; j++) {
                         var line = new Konva.Line({
@@ -98,7 +98,7 @@
                     }
                 }
 
-                // créer la forme du puzzle
+                // Crée la forme du puzzle
                 var puzzle = new Konva.Rect({
                     x: puzzleX,
                     y: puzzleY,
@@ -109,7 +109,7 @@
                 });
                 layer.add(puzzle);
 
-                // dessiner le stage
+                // Dessine le stage
                 stage.draw();
 
             </script>
