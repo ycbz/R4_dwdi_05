@@ -110,9 +110,21 @@
                     }
                 }
 
+                pieces.forEach(function (piece) {
+                    layer.add(piece);
+                });
+
+                pieces.forEach(function (piece) {
+                    piece.on('mouseover', function () {
+                        document.body.style.cursor = 'pointer';
+                    });
+                    piece.on('mouseout', function () {
+                        document.body.style.cursor = 'default';
+                    });
+                });
+
                 // Dessine le stage
                 stage.draw();
-
             </script>
         </div>
     </div>
