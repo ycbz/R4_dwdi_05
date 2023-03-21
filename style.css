@@ -98,3 +98,7 @@ h3 {
 /* Jeu */
 
 /*  */
+
+.game-screen {
+    border: solid 2px var(--font-color);
+}
