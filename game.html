@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puzzle.js</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/konva@9.4.0/konva.min.js"></script>
     <script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
 </head>
 
@@ -27,9 +26,32 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <div class="game-screen">
-            
+    <div class="container-game">
+        <div id="game-screen">
+            <script>
+                var stage = new Konva.Stage({
+                    container: 'game-screen',
+                    width: 500,
+                    height: 500
+                });
+
+                var layer = new Konva.Layer();
+
+                var circle = new Konva.Circle({
+                    x: stage.width() / 2,
+                    y: stage.height() / 2,
+                    radius: 70,
+                    fill: 'red',
+                    stroke: 'black',
+                    strokeWidth: 4
+                });
+
+                layer.add(circle);
+
+                stage.add(layer);
+
+                layer.draw();
+            </script>
         </div>
     </div>
     <footer>
