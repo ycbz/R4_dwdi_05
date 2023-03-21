@@ -74,15 +74,16 @@ a:hover {
 
 /*  */
 
-/* Corps */
+/* Index */
 
 /*  */
 
-.container-index, .container-game {
-    display: flex;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    margin-top: 5vh;
+.container-index {
+    margin-bottom: 9vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 10vh;
+    text-align: center;
 }
 
 h3 {
@@ -90,6 +91,17 @@ h3 {
     font-size: 3.5em;
     letter-spacing: 2px;
     text-shadow: 1px 1px var(--tertiary-color);
+}
+
+h4 {
+    color: var(--font-color);
+    font-size: 2em;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px var(--tertiary-color);
+}
+
+img {
+    width: 5vw;
 }
 
 p {
@@ -105,13 +117,17 @@ p {
 /*  */
 
 .container-game {
+    display: flex;
     justify-content: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
 }
 
 #game-screen {
     border: solid 2px var(--font-color);
     border-radius: 4px;
-    box-shadow: 0px 0px 10px var(--tertiary-color); 
+    box-shadow: 0px 0px 10px var(--tertiary-color);
 }
 
 /*  */
