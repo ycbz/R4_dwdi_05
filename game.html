@@ -31,30 +31,24 @@
             <script>
                 var puzzleImage = new Image();
                 puzzleImage.onload = function () {
-                    // Crée le stage
                     var stage = new Konva.Stage({
                         container: 'game-screen',
                         width: 1200,
                         height: 680
                     });
 
-                    // Crée le layer
                     var layer = new Konva.Layer();
                     stage.add(layer);
 
-                    // Définit les dimensions de l'espace de jeu
                     var puzzleWidth = 500;
                     var puzzleHeight = 500;
 
-                    // Définit les dimensions du conteneur de la scène
                     var containerWidth = 1200;
                     var containerHeight = 680;
 
-                    // Calcule la position centrale de l'espace de jeu
                     var puzzleX = (containerWidth - puzzleWidth) / 2;
                     var puzzleY = (containerHeight - puzzleHeight) / 2;
 
-                    // Crée la forme du puzzle
                     var puzzle = new Konva.Rect({
                         x: puzzleX,
                         y: puzzleY,
@@ -65,7 +59,6 @@
                         strokeWidth: 4
                     });
 
-                    // Crée la forme de la bordure
                     var border = new Konva.Rect({
                         x: puzzleX - 2,
                         y: puzzleY - 2,
@@ -76,7 +69,6 @@
                     });
                     layer.add(border);
 
-                    // Crée les lignes de découpe
                     for (var i = 0; i < 3; i++) {
                         for (var j = 0; j < 4; j++) {
                             var line = new Konva.Line({
@@ -143,7 +135,6 @@
                         });
                     });
 
-                    // Dessine le stage
                     stage.draw();
                 };
                 puzzleImage.src = 'img/Axel2.jpg';
