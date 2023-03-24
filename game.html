@@ -158,6 +158,48 @@
                         });
                     });
 
+                    var positions = [
+                        { x: 10, y: 10 },
+                        { x: 145, y: 10 },
+                        { x: 10, y: 145 },
+                        { x: 145, y: 145 },
+                        { x: 10, y: 280 },
+                        { x: 145, y: 280 },
+                        { x: 10, y: 415 },
+                        { x: 145, y: 415 },
+                        { x: 930, y: 10 },
+                        { x: 1065, y: 10 },
+                        { x: 930, y: 145 },
+                        { x: 1065, y: 145 },
+                        { x: 930, y: 280 },
+                        { x: 1065, y: 280 },
+                        { x: 930, y: 415 },
+                        { x: 1065, y: 415 }
+                    ];
+
+                    shuffle(positions);
+
+                    for (var i = 0; i < pieces.length; i++) {
+                        pieces[i].x(positions[i].x);
+                        pieces[i].y(positions[i].y);
+                    }
+
+                    function shuffle(array) {
+                        var currentIndex = array.length;
+                        var temporaryValue, randomIndex;
+
+                        while (0 !== currentIndex) {
+                            randomIndex = Math.floor(Math.random() * currentIndex);
+                            currentIndex -= 1;
+
+                            temporaryValue = array[currentIndex];
+                            array[currentIndex] = array[randomIndex];
+                            array[randomIndex] = temporaryValue;
+                        }
+
+                        return array;
+                    }
+
                     stage.draw();
                 };
                 puzzleImage.src = 'img/Axel2.jpg';
