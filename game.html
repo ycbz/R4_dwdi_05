@@ -121,6 +121,32 @@
                     layer.add(piece);
 
                     pieces.forEach(function (piece) {
+                        piece.on('dragmove', function () {
+                            // Récupérer les coordonnées actuelles de la pièce
+                            var pieceX = piece.x();
+                            var pieceY = piece.y();
+
+                            // Vérifier si la pièce sort du stage sur les bords gauche ou supérieur
+                            if (pieceX < 0) {
+                                piece.x(0); // Réinitialiser la position de la pièce sur l'axe X
+                            }
+                            if (pieceY < 0) {
+                                piece.y(0); // Réinitialiser la position de la pièce sur l'axe Y
+                            }
+
+                            // Vérifier si la pièce sort du stage sur les bords droit ou inférieur
+                            if (pieceX + piece.width() > stage.width()) {
+                                piece.x(stage.width() - piece.width()); // Réinitialiser la position de la pièce sur l'axe X
+                            }
+                            if (pieceY + piece.height() > stage.height()) {
+                                piece.y(stage.height() - piece.height()); // Réinitialiser la position de la pièce sur l'axe Y
+                            }
+
+                            layer.draw(); // Mettre à jour l'affichage du calque
+                        });
+                    });
+
+                    pieces.forEach(function (piece) {
                         piece.on('mouseover', function () {
                             document.body.style.cursor = 'grab';
                         });
