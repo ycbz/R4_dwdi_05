@@ -81,50 +81,52 @@
                 }
 
                 // Crée la forme du puzzle
-                var puzzle = new Konva.Rect({
-                    x: puzzleX,
-                    y: puzzleY,
-                    width: puzzleWidth,
-                    height: puzzleHeight,
-                    stroke: '#fff',
-                    strokeWidth: 4
-                });
-                layer.add(puzzle);
-
-                // Crée les pièces du puzzle centrées
-                var pieces = [];
-                for (var i = 0; i < 4; i++) {
-                    for (var j = 0; j < 4; j++) {
-                        var piece = new Konva.Rect({
-                            x: puzzleX + i * puzzleWidth / 4,
-                            y: puzzleY + j * puzzleHeight / 4,
-                            width: puzzleWidth / 4,
-                            height: puzzleHeight / 4,
-                            fill: '#fff',
-                            stroke: '#222',
-                            strokeWidth: 2,
-                            draggable: true,
-                        });
-                        pieces.push(piece);
-                        layer.add(piece);
+                var puzzleImage = new Image();
+                puzzleImage.onload = function () {
+                    var pieces = [];
+                    for (var i = 0; i < 4; i++) {
+                        for (var j = 0; j < 4; j++) {
+                            var piece = new Konva.Image({
+                                x: puzzleX + i * puzzleWidth / 4,
+                                y: puzzleY + j * puzzleHeight / 4,
+                                width: puzzleWidth / 4,
+                                height: puzzleHeight / 4,
+                                crop: {
+                                    x: i * puzzleWidth / 4,
+                                    y: j * puzzleHeight / 4,
+                                    width: puzzleWidth / 4,
+                                    height: puzzleHeight / 4,
+                                },
+                                image: puzzleImage,
+                                stroke: '#222',
+                                strokeWidth: 2,
+                                draggable: true,
+                            });
+                            pieces.push(piece);
+                            layer.add(piece);
+                        }
                     }
-                }
-
-                pieces.forEach(function (piece) {
                     layer.add(piece);
-                });
 
-                pieces.forEach(function (piece) {
-                    piece.on('mouseover', function () {
-                        document.body.style.cursor = 'pointer';
+                    pieces.forEach(function (piece) {
+                        piece.on('mouseover', function () {
+                            document.body.style.cursor = 'grab';
+                        });
+                        piece.on('mousedown', function () {
+                            document.body.style.cursor = 'grabbing';
+                        });
+                        piece.on('mouseup', function () {
+                            document.body.style.cursor = 'grab';
+                        });
+                        piece.on('mouseout', function () {
+                            document.body.style.cursor = 'default';
+                        });
                     });
-                    piece.on('mouseout', function () {
-                        document.body.style.cursor = 'default';
-                    });
-                });
 
-                // Dessine le stage
-                stage.draw();
+                    // Dessine le stage
+                    stage.draw();
+                };
+                puzzleImage.src = 'img/Axel.jpg';
             </script>
         </div>
     </div>
