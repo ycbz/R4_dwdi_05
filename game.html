@@ -29,60 +29,69 @@
     <div class="container-game">
         <div id="game-screen">
             <script>
-                // Crée le stage
-                var stage = new Konva.Stage({
-                    container: 'game-screen',
-                    width: 1200,
-                    height: 680
-                });
-
-                // Crée le layer
-                var layer = new Konva.Layer();
-                stage.add(layer);
-
-                // Définit les dimensions de l'espace de jeu
-                var puzzleWidth = 500;
-                var puzzleHeight = 500;
-
-                // Définit les dimensions du conteneur de la scène
-                var containerWidth = 1200;
-                var containerHeight = 680;
-
-                // Calcule la position centrale de l'espace de jeu
-                var puzzleX = (containerWidth - puzzleWidth) / 2;
-                var puzzleY = (containerHeight - puzzleHeight) / 2;
-
-                // Crée les lignes de découpe
-                for (var i = 0; i < 3; i++) {
-                    for (var j = 0; j < 4; j++) {
-                        var line = new Konva.Line({
-                            points: [i * 500 / 4 + 500 / 4,
-                            j * 500 / 4 + 500 / 4,
-                            i * 500 / 4 + 500 / 4,
-                            j * 500 / 4 + 500 / 4],
-                            stroke: '#222',
-                            strokeWidth: 2
-                        });
-                        layer.add(line);
-                    }
-                }
-                for (var i = 0; i < 4; i++) {
-                    for (var j = 0; j < 3; j++) {
-                        var line = new Konva.Line({
-                            points: [i * 500 / 4 + 500 / 4,
-                            j * 500 / 4 + 500 / 4,
-                            i * 500 / 4 + 500 / 4,
-                            j * 500 / 4 + 500 / 4],
-                            stroke: '#222',
-                            strokeWidth: 2
-                        });
-                        layer.add(line);
-                    }
-                }
-
-                // Crée la forme du puzzle
                 var puzzleImage = new Image();
                 puzzleImage.onload = function () {
+                    // Crée le stage
+                    var stage = new Konva.Stage({
+                        container: 'game-screen',
+                        width: 1200,
+                        height: 680
+                    });
+
+                    // Crée le layer
+                    var layer = new Konva.Layer();
+                    stage.add(layer);
+
+                    // Définit les dimensions de l'espace de jeu
+                    var puzzleWidth = 500;
+                    var puzzleHeight = 500;
+
+                    // Définit les dimensions du conteneur de la scène
+                    var containerWidth = 1200;
+                    var containerHeight = 680;
+
+                    // Calcule la position centrale de l'espace de jeu
+                    var puzzleX = (containerWidth - puzzleWidth) / 2;
+                    var puzzleY = (containerHeight - puzzleHeight) / 2;
+
+                    // Crée la forme du puzzle
+                    var puzzle = new Konva.Rect({
+                        x: puzzleX,
+                        y: puzzleY,
+                        width: puzzleWidth,
+                        height: puzzleHeight,
+                        fillPatternImage: puzzleImage,
+                        stroke: '#fff',
+                        strokeWidth: 4
+                    });
+
+                    // Crée les lignes de découpe
+                    for (var i = 0; i < 3; i++) {
+                        for (var j = 0; j < 4; j++) {
+                            var line = new Konva.Line({
+                                points: [i * 500 / 4 + 500 / 4,
+                                j * 500 / 4 + 500 / 4,
+                                i * 500 / 4 + 500 / 4,
+                                j * 500 / 4 + 500 / 4],
+                                stroke: '#222',
+                                strokeWidth: 2
+                            });
+                            layer.add(line);
+                        }
+                    }
+                    for (var i = 0; i < 4; i++) {
+                        for (var j = 0; j < 3; j++) {
+                            var line = new Konva.Line({
+                                points: [i * 500 / 4 + 500 / 4,
+                                j * 500 / 4 + 500 / 4,
+                                i * 500 / 4 + 500 / 4,
+                                j * 500 / 4 + 500 / 4],
+                                stroke: '#222',
+                                strokeWidth: 2
+                            });
+                            layer.add(line);
+                        }
+                    }
                     var pieces = [];
                     for (var i = 0; i < 4; i++) {
                         for (var j = 0; j < 4; j++) {
@@ -126,7 +135,7 @@
                     // Dessine le stage
                     stage.draw();
                 };
-                puzzleImage.src = 'img/Axel.jpg';
+                puzzleImage.src = 'img/Axel2.jpg';
             </script>
         </div>
     </div>
