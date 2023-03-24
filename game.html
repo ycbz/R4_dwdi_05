@@ -65,6 +65,17 @@
                         strokeWidth: 4
                     });
 
+                    // Crée la forme de la bordure
+                    var border = new Konva.Rect({
+                        x: puzzleX - 2,
+                        y: puzzleY - 2,
+                        width: puzzleWidth + 4,
+                        height: puzzleHeight + 4,
+                        stroke: '#fff',
+                        strokeWidth: 2
+                    });
+                    layer.add(border);
+
                     // Crée les lignes de découpe
                     for (var i = 0; i < 3; i++) {
                         for (var j = 0; j < 4; j++) {
